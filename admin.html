@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <title>Titan Master - Admin</title>
+    <style>
+        body { background: #0a0f0d; color: white; font-family: sans-serif; padding: 20px; }
+        .admin-box { max-width: 500px; margin: auto; background: #111815; padding: 25px; border: 1px solid #00ff88; border-radius: 10px; }
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0; background: #222; color: white; border: 1px solid #333; }
+        .btn { background: #00ff88; color: black; padding: 12px; width: 100%; border: none; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="admin-box">
+        <h2 style="color:#00ff88">Admin Control Panel</h2>
+        
+        <label>AI API Token:</label>
+        <input type="text" id="tokenInput" placeholder="Enter HuggingFace/Gemini Token">
+        
+        <label>New Tournament Details:</label>
+        <textarea id="tourInput" placeholder="Match Time, Entry Fee, Prize Pool..."></textarea>
+        
+        <button class="btn" onclick="saveData()">UPDATE WEBSITE</button>
+        <p id="msg" style="text-align:center; color:#00ff88;"></p>
+        <br>
+        <a href="index.html" style="color:gray; text-decoration:none;">← Back to Site</a>
+    </div>
+
+    <script>
+        function saveData() {
+            const token = document.getElementById('tokenInput').value;
+            localStorage.setItem('aiToken', token);
+            document.getElementById('msg').innerText = "Settings Saved Locally!";
+        }
+    </script>
+</body>
+</html>
